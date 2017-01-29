@@ -37,12 +37,8 @@ def on_message(message):
                 yield from client.edit_message(message, ':)')
             else:
                 yield from client.send_message(message.channel, 'testing back :)')
-        # for log in client.logs_from(message.channel, limit=100):
-        #     if log.author == message.author:
-        #         counter += 1
-        # yield from client.edit_message(tmp, 'You have {} messages.'.format(counter))
     elif message.content.startswith('!sleep'):
         yield from asyncio.sleep(5)
         yield from client.send_message(message.channel, 'Done sleeping')
 
-client.run('MjQyMDUwNTE1MTQyMzExOTM3.Cvay0A.OhZwoFXG3c_mUq9EezZDwotsxZ8')
+client.run('CLIENT_KEY')
