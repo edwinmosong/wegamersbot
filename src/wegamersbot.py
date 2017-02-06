@@ -48,13 +48,13 @@ class WeGamersBot(discord.Client):
         self._startup = datetime.datetime.now()
         message = "Waking up at %s" % str(self._startup)
 
-        channels = yield from self.get_all_channels()
+        channels = self.get_all_channels()
         for channel in channels:
             if channel.name.lower() == "dev":
                 self._logger.debug({"action": "send msg to channel",
                                     "channel": channel.name,
                                     "message": message})
-                yield from self.send_message(startup_channel, message)
+                yield from self.send_message(channel, message)
             else:
                 self._logger.debug({"action": "channel does not match 'dev'",
                                     "channel": channel.name})
